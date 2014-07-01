@@ -1,0 +1,70 @@
+{template "content","header"}
+  <hr class="low">
+  <!-- content ................................. -->
+  <div id="content">
+    <div class="entry single">
+      <div class="clearfloat" id="single-nav">  <a href="{siteurl($siteid)}">首页</a><span> > </span>{catpos($catid)} </div>
+      <h2><a href="{$url}">{$title}</a></h2>
+      <p class="info"> {loop $arrchild_arr $cid}
+               <a href="{$CATEGORYS[$cid][url]}">{$CATEGORYS[$cid][catname]}</a>  |  
+			{/loop}
+      </p>
+     {$content}
+    </div>
+    
+  </div>
+  <!-- /content -->
+  <hr class="low">
+  <!-- subcontent ................................. -->
+  <div id="subcontent">
+  <div class="socialicons">
+    <div class="socialeffect fix"> <span>关注网站模板网: </span> <a href="{APP_PATH}index.php?m=content&c=rss&siteid={get_siteid()}" class="rsslink" target="_blank"> <img original="{APP_PATH}statics/blog/icon-rss.png" src="{APP_PATH}statics/blog/icon-rss.png" title="文章订阅"> </a> <a href="h#" target="_blank"> <img original="{APP_PATH}statics/blog/icon-douban.png" src="{APP_PATH}statics/blog/icon-douban.png" title="豆瓣九点"> </a> <a href="#" target="_blank"> <img original="{APP_PATH}statics/blog/icon-sinaweibo.png" src="{APP_PATH}statics/blog/icon-sinaweibo.png" title="新浪微博"> </a> <a href="#" target="_blank"> <img original="{APP_PATH}statics/blog/icon-qqweibo.png" src="{APP_PATH}statics/blog/icon-qqweibo.png" title="腾讯微博"> </a> </div>
+  </div>
+  <div style="clear:both>"></div>
+  <center>
+     <img src="{APP_PATH}statics/blog/300_250.jpg" alt="网站模板" width="300" height="250"  />
+  </center>
+  <dl>
+    <h2>推荐文章</h2>
+    <ul>
+      {pc:content action="position" posid="9" order="listorder  DESC"  num="8"}
+      {loop $data $r}
+      <li><a href="{$r[url]}">{str_cut($r[title],40,'')}</a></li>
+      {/loop}
+      {/pc}
+    </ul>
+  </dl>
+  <dl>
+    <h2>热门</h2>
+    <ul>
+      {pc:content action="hits" catid="6" order="weekviews  DESC"  num="8"}
+      {loop $data $r}
+      <li><a href="{$r[url]}">{str_cut($r[title],40,'')}</a></li>
+      {/loop}
+      {/pc}
+    </ul>
+  </dl>
+  <dl>
+    <h2>最新评论</h2>
+    <ul class="comment_ul">
+      {pc:comment action="bang" siteid="$siteid" cache="3600"}
+      {loop $data $r}
+     <li><span>({$r[total]})</span><a href="{$r[url]}" target="_blank">{str_cut($r[title], 40)}</a></li>
+     {/loop}
+      {/pc}
+    </ul>
+  </dl>
+  <dl>
+    <h2>友情链接</h2>
+    <ul>
+      {pc:link  action="type_list" siteid="$siteid" order="listorder DESC" num="10" return="dat"}
+      {loop $dat $v}
+      <li><a href="{$v[url]}" target="_blank">{$v[name]}</a></li>
+      {/loop}
+      {/pc}
+    </ul>
+  </dl>
+</div>
+  <!-- /subcontent -->
+  <hr class="low">
+  {template "content","footer"}

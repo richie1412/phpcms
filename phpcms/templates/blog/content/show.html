@@ -1,0 +1,176 @@
+{template "content","header"}
+  <hr class="low">
+  <!-- content ................................. -->
+  <div id="content">
+    <div class="entry single">
+      <div class="clearfloat" id="single-nav"> <a href="{siteurl($siteid)}">首页</a><span> > </span>{catpos($catid)} {$title}</div>
+      <div style="clear:both">
+        <div class="alignleft">
+          <h2><a href="{$url}" title="Permalink">{$title}</a></h2>
+          <p class="info">{$inputtime}
+            , 浏览:<span id="hits"></span> , 分类:<a href="{$CATEGORYS[$r[catid]][url]}" title="{$CATEGORYS[$r[catid]][catname]}" >{$CATEGORYS[$r[catid]][catname]} </a> 
+             <em class="author">{$username}</em> 
+          </p>
+        </div>
+        <div class="alignright">
+          <div class="post-comments"> <a href="#comment_iframe" id="comment" class="commentlink">0</a></div>
+        </div>
+      </div>
+      <div style="clear:both"></div>
+      <div class="content">
+			{if $allow_visitor==1}
+				{$content}
+				<!--内容关联投票-->
+				{if $voteid}<script language="javascript" src="{APP_PATH}index.php?m=vote&c=index&a=show&action=js&subjectid={$voteid}&type=2"></script>{/if}
+                
+			{else}
+				<CENTER><a href="{APP_PATH}index.php?m=content&c=readpoint&allow_visitor={$allow_visitor}"><font color="red">阅读此信息需要您支付 <B><I>{$readpoint} {if $paytype}元{else}点{/if}</I></B>，点击这里支付</font></a></CENTER>
+			{/if}
+			</div>
+{if $titles}
+<fieldset>
+	<legend class="f14">本文导航</legend><ul class="list blue row-2">
+{loop $titles $r}
+	<li>{$n}、<a href="{$r[url]}">{$r[title]}</a></li>
+{/loop}
+</ul>
+</fieldset>
+{/if}
+      <div class="single-tag">标签： {loop $keywords $keyword}<a href="{APP_PATH}index.php?m=content&c=tag&catid={$catid}&tag={urlencode($keyword)}" class="blue">{$keyword}</a> 	{/loop}<br>
+      </div>
+      <div class="post-meta">  分享到：
+		  <img src="http://v.t.qq.com/share/images/s/weiboicon16.png" style="padding-bottom:3px;" onclick="postToWb();" class="cu" title="分享到腾讯微博"/><script type="text/javascript">
+	function postToWb(){
+		var _t = encodeURI(document.title);
+		var _url = encodeURIComponent(document.location);
+		var _appkey = encodeURI("cba3558104094dbaa4148d8caa436a0b");
+		var _pic = encodeURI('{$thumb}');
+		var _site = '';
+		var _u = 'http://v.t.qq.com/share/share.php?url='+_url+'&appkey='+_appkey+'&site='+_site+'&pic='+_pic+'&title='+_t;
+		window.open( _u,'', 'width=700, height=680, top=0, left=0, toolbar=no, menubar=no, scrollbars=no, location=yes, resizable=no, status=no' );
+	}
+</script>
+          <script type="text/javascript">document.write('<a href="http://v.t.sina.com.cn/share/share.php?url='+encodeURIComponent(location.href)+'&appkey=3172366919&title='+encodeURIComponent('{new_addslashes($title)}')+'" title="分享到新浪微博" class="t1" target="_blank">&nbsp;</a>');</script>
+		  <script type="text/javascript">document.write('<a href="http://www.douban.com/recommend/?url='+encodeURIComponent(location.href)+'&title='+encodeURIComponent('{new_addslashes($title)}')+'" title="分享到豆瓣" class="t2" target="_blank">&nbsp;</a>');</script>
+		  <script type="text/javascript">document.write('<a href="http://share.renren.com/share/buttonshare.do?link='+encodeURIComponent(location.href)+'&title='+encodeURIComponent('{new_addslashes($title)}')+'" title="分享到人人" class="t3" target="_blank">&nbsp;</a>');</script>
+		  <script type="text/javascript">document.write('<a href="http://www.kaixin001.com/repaste/share.php?rtitle='+encodeURIComponent('{new_addslashes($title)}')+'&rurl='+encodeURIComponent(location.href)+'&rcontent=" title="分享到开心网" class="t4" target="_blank">&nbsp;</a>');</script>
+		  <script type="text/javascript">document.write('<a href="http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url='+encodeURIComponent(location.href)+'" title="分享到QQ空间" class="t5" target="_blank">&nbsp;</a>');</script>
+      
+	  <span id='favorite'>
+		<a href="javascript:;" onclick="add_favorite('{addslashes($title)}');" class="t6">收藏</a>
+	  </span> </div>
+    </div>
+     {if $allow_comment && module_exists('comment')}
+      <iframe src="{APP_PATH}index.php?m=comment&c=index&a=init&commentid={id_encode("content_$catid",$id,$siteid)}&iframe=1" width="100%" height="100%" id="comment_iframe" frameborder="0" scrolling="no"></iframe>
+      
+        {/if}
+  </div>
+  <!-- /content -->
+  <hr class="low">
+  <!-- subcontent ................................. -->
+  <div id="subcontent">
+  <div class="socialicons">
+    <div class="socialeffect fix"> <span>关注网站模板网: </span> <a href="{APP_PATH}index.php?m=content&c=rss&siteid={get_siteid()}" class="rsslink" target="_blank"> <img original="{APP_PATH}statics/blog/icon-rss.png" src="{APP_PATH}statics/blog/icon-rss.png" title="文章订阅"> </a> <a href="h#" target="_blank"> <img original="{APP_PATH}statics/blog/icon-douban.png" src="{APP_PATH}statics/blog/icon-douban.png" title="豆瓣九点"> </a> <a href="#" target="_blank"> <img original="{APP_PATH}statics/blog/icon-sinaweibo.png" src="{APP_PATH}statics/blog/icon-sinaweibo.png" title="新浪微博"> </a> <a href="#" target="_blank"> <img original="{APP_PATH}statics/blog/icon-qqweibo.png" src="{APP_PATH}statics/blog/icon-qqweibo.png" title="腾讯微博"> </a> </div>
+  </div>
+  <div style="clear:both>"></div>
+  <center>
+     <img src="{APP_PATH}statics/blog/300_250.jpg" alt="网站模板" width="300" height="250"  />
+  </center>
+  <dl>
+    <h2>推荐文章</h2>
+    <ul>
+      {pc:content action="position" posid="9" order="listorder  DESC"  num="8"}
+      {loop $data $r}
+      <li><a href="{$r[url]}">{str_cut($r[title],40,'')}</a></li>
+      {/loop}
+      {/pc}
+    </ul>
+  </dl>
+  <dl>
+    <h2>热门</h2>
+    <ul>
+      {pc:content action="hits" catid="6" order="weekviews  DESC"  num="8"}
+      {loop $data $r}
+      <li><a href="{$r[url]}">{str_cut($r[title],40,'')}</a></li>
+      {/loop}
+      {/pc}
+    </ul>
+  </dl>
+  <dl>
+    <h2>最新评论</h2>
+    <ul class="comment_ul">
+      {pc:comment action="bang" siteid="$siteid" cache="3600"}
+      {loop $data $r}
+     <li><span>({$r[total]})</span><a href="{$r[url]}" target="_blank">{str_cut($r[title], 40)}</a></li>
+     {/loop}
+      {/pc}
+    </ul>
+  </dl>
+  <dl>
+    <h2>友情链接</h2>
+    <ul>
+      {pc:link  action="type_list" siteid="$siteid" order="listorder DESC" num="10" return="dat"}
+      {loop $dat $v}
+      {if $type==0}
+      <li><a href="{$v[url]}" target="_blank">{$v[name]}</a></li>
+      {else}
+      <li> <a href="{$v[url]}" target="_blank"><img src="{$v[logo]}" width="88" height="31" style="border: 1px solid #FFBE7A;"></a> </li>
+      {/if}
+      {/loop}
+      {/pc}
+    </ul>
+  </dl>
+</div>
+  <!-- /subcontent -->
+  <hr class="low">
+  <script type="text/javascript">
+<!--
+	function show_ajax(obj) {
+		var keywords = $(obj).text();
+		var offset = $(obj).offset();
+		var jsonitem = '';
+		$.getJSON("{APP_PATH}index.php?m=content&c=index&a=json_list&type=keyword&modelid={$modelid}&id={$id}&keywords="+encodeURIComponent(keywords),
+				function(data){
+				var j = 1;
+				var string = "<div class='point key-float'><div style='position:relative'><div class='arro'></div>";
+				string += "<a href='JavaScript:;' onclick='$(this).parent().parent().remove();' hidefocus='true' class='close'><span>关闭</span></a><div class='contents f12'>";
+				if(data!=0) {
+				  $.each(data, function(i,item){
+					j = i+1;
+					jsonitem += "<a href='"+item.url+"' target='_blank'>"+j+"、"+item.title+"</a><BR>";
+					
+				  });
+					string += jsonitem;
+				} else {
+					string += '没有找到相关的信息！';
+				}
+					string += "</div><span class='o1'></span><span class='o2'></span><span class='o3'></span><span class='o4'></span></div></div>";		
+					$(obj).after(string);
+					$('.key-float').mouseover(
+						function (){
+							$(this).siblings().css({"z-index":0})
+							$(this).css({"z-index":1001});
+						}
+					)
+					$(obj).next().css({ "left": +offset.left-100, "top": +offset.top+$(obj).height()+12});
+				});
+	}
+
+	function add_favorite(title) {
+		$.getJSON('{APP_PATH}api.php?op=add_favorite&title='+encodeURIComponent(title)+'&url='+encodeURIComponent(location.href)+'&'+Math.random()+'&callback=?', function(data){
+			if(data.status==1)	{
+				$("#favorite").html('收藏成功');
+			} else {
+				alert('请登录');
+			}
+		});
+	}
+
+$(function(){
+  $('#Article .content img').LoadImage(true, 660, 660,'{IMG_PATH}s_nopic.gif');    
+})
+//-->
+</script>
+
+<script language="JavaScript" src="{APP_PATH}api.php?op=count&id={$id}&modelid={$modelid}"></script>
+{template "content","footer"}

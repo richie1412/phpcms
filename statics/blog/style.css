@@ -1,0 +1,70 @@
+/*
+Theme Name: Blix
+Theme URI: http://www.kingcosmonaut.de/blix/
+Description: Hmmm...
+Version: 0.9.1
+Author: Sebastian Schmieg
+Author URI:
+*/
+
+@import "layout.css";
+@import "spring_flavour.css";
+#social-share {
+	margin:20px 0;
+	height:16px;
+	line-height:16px;
+}
+#social-share a {
+	background:url("s.png") no-repeat;
+	margin-right:10px;
+	padding-left:18px;
+	height:16px;
+	display:inline-block;
+}
+#social-share .sina-share {
+	background-position:0 0;
+}
+#social-share .renren-share {
+	background-position:0 -20px;
+}
+#social-share .kaixin001-share {
+	background-position:0 -40px;
+}
+#social-share .douban-share {
+	background-position:0 -60px;
+}
+#social-share .qq-share {
+	background-position:0 -80px;
+}
+#social-share .qzone-share {
+	background-position:0 -100px;
+}
+#social-share .mail-share {
+	background-position:0 -120px;
+}
+.editComment, .editableComment, .textComment {
+	display: inline;
+}
+.comment-childs {
+	margin: 5px 2px 2px 4px;
+	padding: 4px 2px 2px 4px;
+	background-color:#fff;
+}
+.chalt {
+	background-color: #fff;
+}
+#newcomment {
+}
+#newcommentsubmit {
+	color:red;
+}
+.adminreplycomment {
+	border:1px dashed #777;
+	width:99%;
+	margin:4px;
+	padding:4px;
+}
+.mvccls {
+	color: #999;
+}
+

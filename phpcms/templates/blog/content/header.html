@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<title>{if isset($SEO['title']) && !empty($SEO['title'])}{$SEO['title']}{/if}{$SEO['site_title']}</title>
+<meta name="keywords" content="{$SEO['keyword']}">
+<meta name="description" content="{$SEO['description']}">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link rel="stylesheet" href="{APP_PATH}statics/blog/style.css" type="text/css" media="screen, projection">
+<script type="text/javascript" src="{JS_PATH}jquery.min.js"></script>
+<script type="text/javascript" src="{JS_PATH}jquery.sgallery.js"></script>
+<script type="text/javascript" src="{JS_PATH}search_common.js"></script>
+</head>
+<body>
+<div id="header">
+  <div class="logoleft"></div>
+  <div class="adright">
+  <a href="http://www.e553.com" target="_blank"> <img src="{APP_PATH}statics/blog/728_90.jpg" alt="网站模板" width="728" height="90"  /></a></div>
+</div>
+<!-- /header -->
+<!-- navigation ................................. -->
+<div id="navigation">
+   <form action="{APP_PATH}index.php" method="get" target="_blank">
+				<input type="hidden" name="m" value="search"/>
+				<input type="hidden" name="c" value="index"/>
+				<input type="hidden" name="a" value="init"/>
+				<input type="hidden" name="typeid" value="{$typeid}" id="typeid"/>
+				<input type="hidden" name="siteid" value="{$siteid}" id="siteid"/>
+    <fieldset>
+    <input name="q" id="q">
+    <input value="Go!" id="searchbutton" name="searchbutton" type="submit">
+    </fieldset>
+  </form>
+  <ul>
+  {pc:content action="category" catid="0" num="25" siteid="$siteid" order="listorder ASC"}
+    <li><a href="{siteurl($siteid)}">首页</a></li>
+    {loop $data $r}
+   <li><a href="{$r[url]}">{$r[catname]}</a></li>
+   {/loop}
+    {/pc}
+  </ul>
+</div>
+<!-- /navigation -->
+<div id="container">
+

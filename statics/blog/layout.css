@@ -1,0 +1,523 @@
+/* reset
+--------------------------------------------------*/
+body,h1,h2,h3,h4,h5,h6,p,form,fieldset {margin:0;padding:0;}
+.low {display:none;}
+
+
+/* body
+--------------------------------------------------*/
+body {
+  margin:0;
+  padding:0;
+  font-family:Arial, Helvetica, sans-serif;
+  font-size:12px;
+  line-height:1.6em;
+  text-align:center;
+}
+
+body#commentspopup {padding:0;}
+
+
+/* headings
+--------------------------------------------------*/
+h1 {font-size:30px;}
+
+#content h2 {
+  margin:0 0 10px 0;
+  font-family:Georgia, serif;
+  font-size:18px;
+  font-weight:bold;
+}
+
+#content h3 {
+  margin:0 0 18px 0;
+  font-size:1em;
+}
+
+#content h4 {
+  margin:0;
+  font-size:1em;
+}
+
+#content.archive h2 {margin:0 0 26px 0;}
+
+#content.archive h3 {
+  margin:0 0 10px 0;
+  font-family:Georgia, serif;
+  font-size:1.3em;
+  font-weight:normal;
+}
+
+#content.archive h4 {
+  margin:0 0 18px 0;
+  font-size:1em;
+}
+
+#content.archive h5 {
+  margin:0;
+  font-size:1em;
+}
+
+
+/* links
+--------------------------------------------------*/
+a {text-decoration:none;}
+
+a img {border:none;}
+
+/* paragraphs, lists, etc
+--------------------------------------------------*/
+p {
+  margin:0;
+  padding:0 0 18px 0;
+}
+
+ul {
+  margin:0 0 0 1.4em;
+  padding:0 0 18px 0;
+}
+
+ul ul {padding:0;}
+
+blockquote {
+  margin:0;
+  padding:0 18px;
+  font-style:italic;
+}
+
+pre {
+  overflow:auto;
+  margin:0 0 18px 0;
+  padding:4px;
+}
+
+pre, code, kbr {font-family:Courier, Monaco, monospace;}
+
+code, kbr {padding:0 2px;}
+
+abbr, acronym {
+  font-size:0.9em;
+  letter-spacing:1px;
+}
+
+
+/* container
+--------------------------------------------------*/
+#container {
+  width:950px;
+  margin:0 auto;
+  padding:0 20px 0 20px;
+  text-align:left;
+}
+
+#commentspopup #container {
+  width:655px;
+  padding:0 15px;
+}
+
+
+/* header
+--------------------------------------------------*/
+#header {
+  height:100px;
+  padding:15px 0 0 15px;
+  display:block;
+  width:975px;
+  margin:0 auto;
+  background:#fff;
+}
+
+.logoleft {
+  background:url(logo.png) no-repeat 7px;
+  width:195px;
+  height:90px;
+  float:left;
+}
+
+.adright {
+  float:right;
+  width:728px;
+  padding-right:10px;
+}
+
+/* navigation
+--------------------------------------------------*/
+#navigation {
+  height:42px;
+  line-height:2.7em;
+  width:980px;
+  margin:0 auto;
+}
+
+#navigation ul {
+  margin:0;
+  padding:0;
+}
+
+#navigation li {
+  float:left;
+  margin:0;
+  padding:0;
+  list-style-type:none;
+  white-space:nowrap;
+}
+
+#navigation li a {
+  display:block;
+  padding:5px 15px;
+  font-size:14px;
+  text-transform:uppercase;
+}
+
+* html #navigation a {width:1%;} /* see http://www.positioniseverything.net/explorer/escape-floats.html */
+
+#navigation form {
+  float:right;
+  height:100%;
+  width:210px;
+  padding:0;
+  line-height:22px;
+}
+
+#navigation form fieldset {
+  /* centering the search form could've
+  been done way more elegant but IEWin
+  and Opera refused to follow the rules */
+  margin-top:8px;
+  border:0 solid; /* Opera */
+}
+
+* html #navigation form fieldset {margin-top:7px;}
+
+#navigation #q {
+  height:2em;
+  width:180px;
+  margin:0;
+  padding:0;
+  font-size:12px;
+  float:left;
+  background:#f98646;
+  border:none;
+}
+
+#navigation #searchbutton {
+  height:24px;
+  width:12px;
+  text-indent:-9999px;
+  background:url(search.png) no-repeat center;
+  border:none;
+}
+
+
+/* content
+--------------------------------------------------*/
+#content {
+  float:left;
+  width:615px;
+}
+
+#commentspopup #content {
+  float:none;
+  padding-top:0;
+}
+
+
+/* entry
+--------------------------------------------------*/
+.entry {margin:0 0 40px 0;font-size:14px; line-height:24px; border-bottom:1px solid #dfddd5;padding-bottom:40px;}
+
+.entry .info {
+  position:relative;
+  padding:3px 8px;
+  font-size:12px;
+  margin-bottom:8px;
+  width:350px;
+}
+
+.entry.single {clear:both;padding:0;border:none;}
+
+.entry.single .info {margin:0 0 22px 0;}
+
+.entry .author,
+.entry .editlink a {
+  margin:0;
+  padding:0 0 0 10px;
+  border-left:1px solid;
+  border-right:none
+}
+
+.entry #filedunder {
+  clear:both;
+  padding:3px 0 0 0;
+  font-size:0.9em;
+  border-top:1px solid;
+}
+
+		.post-comments a{
+			float: right;
+			margin-left: -50px;
+			background: url(comments-bubble.png) no-repeat top center;
+			width: 45px;
+			height: 50px;
+			display: block;
+			font-weight: bold;
+			font-size:1.3em;
+			line-height:34px;
+			text-align:center;
+			position: relative;
+			zoom:1;
+		}
+		.post-comments a:hover{text-decoration:none;color: #000;}
+
+#single-nav {border-bottom:solid 1px #e9e9e9;padding:5px;margin-bottom:20px;font-size:14px;width:615px;}
+.alignleft{float:left;}
+.alignright{float:right;}
+.aligncenter{display:block;margin:0 auto;}
+.single-tag{font-size:14px;margin:10px 0;}
+.single-tag a{background:#fafafa;border:1px solid #f3f4f4;padding:4px;color:#4a6100;}
+#settings {Z-INDEX: 8000; POSITION: fixed; bottom:0;left:75%;list-style:none;}
+#settings li {float:left;BACKGROUND: #88b600; filter:alpha(opacity=90);opacity:0.9;margin-right:1px;}
+#settings li a{padding:5px 8px; DISPLAY: block; CURSOR: pointer; color:#fff;}
+#settings li a:hover {BACKGROUND:#7aa300;text-decoration: none;}
+.post-meta{border-bottom:solid 1px #e9e9e9;width:610px;padding:10px 0;font-size:14px;height:45px;line-height:24px;}
+.post-meta a{color:#4a6100;}
+.post-ding{border-bottom:solid 1px #e9e9e9;width:610px;padding:10px 0;font-size:14px;height:25px;}
+
+/* mini-entry
+--------------------------------------------------*/
+.minientry {
+  position:relative;
+  margin:0px 0 35px 0;
+  padding:10px 0;
+  border-top:1px dotted;
+  border-bottom:1px dotted;
+}
+
+.minientry p {padding:0;}
+
+.minientry .commentlink {
+  margin-left:3px;
+  padding-right:7px;
+  border-right:1px solid;
+  font-size:0.9em;
+}
+
+.minientry .permalink {
+  margin-left:3px;
+  font-size:0.9em;
+  font-style:normal;
+}
+
+.minientry .author,
+.minientry .editlink a {
+  margin-left:6px;
+  padding:0 8px 0 10px;
+  border-left:1px solid;
+  font-size:0.9em;
+  font-style:normal;
+}
+
+.minientry .editlink a {margin:0;}
+
+
+/* comments
+--------------------------------------------------*/
+.avatar {
+  position:absolute;
+  margin-left:-40px;
+  width:32px;
+  height:32px;
+}
+
+/* form
+--------------------------------------------------*/
+
+form .hiddenfield {display:none;}
+
+form .info {padding-left:90px;}
+
+
+/* archives
+--------------------------------------------------*/
+.archive .postspermonth {
+  margin:0;
+  list-style:none;
+}
+
+
+/* content misc
+--------------------------------------------------*/
+.next a {float:right;}
+.previous a {float:left;}
+
+
+#entrynavigation {
+  overflow: auto;
+  height:1%;
+  margin-bottom:13px;
+  padding-bottom:13px;
+  border-bottom:1px solid;
+  font-size:0.9em;
+}
+
+
+/* subcontent
+--------------------------------------------------*/
+#subcontent {
+  float:right;
+  width:300px;
+  padding:0 0 0 15px;
+  font-size:0.9em;
+  line-height:1.5em;
+}
+
+#subcontent ul, #subcontent p {margin:0;}
+
+
+/* subcontent headings
+--------------------------------------------------*/
+#subcontent h2 {
+  font-size:14px;
+  line-height:1em;
+  display:block;
+  padding:8px 10px;
+  border-bottom:1px solid #dddddd;
+  font-weight:bold;
+  text-shadow: #fff 0 1px 0;
+  border-top: 1px solid #fff;
+  border-left: 1px solid #fff;
+  background: #f1f1f1;
+  color:#000000;
+}
+
+/* subcontent list
+--------------------------------------------------*/
+#subcontent dl {
+  border:1px solid #dddddd;
+  padding:0;
+  margin-bottom:10px;
+}
+#subcontent ul {
+  padding:8px 0;
+}
+
+#subcontent ul li {
+  font-size:12px;
+  list-style:none;
+  padding:5px 0 5px 10px;
+}
+
+#subcontent li a {
+  display:block;
+  color:#666;
+}
+
+#subcontent ul.categories li ul {margin:0;}
+
+#subcontent ul.categories li li {
+  margin:0;
+  padding:0 0 3px 0;
+  border-bottom:none;
+}
+
+#subcontent ul.categories li ul ul {margin:0 0 0 16px;}
+.widget_links ul li{margin:5px 0 0 15px;height:20px;float:left;width:43%;}
+
+
+/* calendar
+--------------------------------------------------*/
+#wp-calendar {
+  display:inline-table;
+  border-collapse:collapse;
+  width:185px;
+  margin:0px 10px 0 10px;
+  text-align:center;
+}
+
+#subcontent table caption {
+  margin:-5px 10px 0 10px;
+  padding-bottom:5px;
+  border-bottom:1px solid;
+  letter-spacing:0.1em;
+}
+
+#subcontent table thead tr {border-bottom:1px solid;}
+
+#subcontent table th {border-bottom:1px solid;}
+
+#subcontent table td {
+  width:200px; /* maximaize width; honestly, I don't know much about tables... */
+  padding:1px;
+  font-size:0.9em;
+}
+
+#subcontent table td#today {
+  padding:0;
+  border:1px solid;
+  font-size:1em;
+  font-weight:bold;
+}
+
+#subcontent table td a {
+  display:block;
+  border-bottom:1px solid;
+  font-weight:bold;
+  font-size:1.15em;
+}
+
+#subcontent table tfoot {border-top:1px solid;}
+
+#subcontent table tfoot a {
+  border:none;
+  font-weight:bold;
+}
+
+#subcontent table tfoot #prev a {text-align:left;}
+#subcontent table tfoot #next a {text-align:right;}
+
+
+/* footer
+--------------------------------------------------*/
+#footer {
+  clear:both;
+  padding:12px 0 0 0;
+  font-size:14px;
+  height:60px;
+}
+
+#footer strong {font-weight:normal;}
+
+/* Header Icons */
+.socialicons {
+
+	text-align: right;
+	line-height: 20px;
+	border: 1px solid #ddd;
+	background: #f1f1f1;
+	text-align: left;
+	font-weight:bold;
+	font-size: 12px;
+	color: #999;
+}
+.socialicons .socialeffect {
+	height: 24px;
+	border-top: 1px solid #fff;
+	border-left: 1px solid #fff;
+	padding: 7px 12px;
+}
+.socialicons span {margin-right: 13px; text-shadow: #fff 0 -1px 0;}
+.socialicons a{margin-right: 5px;}
+.socialicons img {vertical-align:middle;}
+
+.wp-pagenavi {color:#5b7301;padding:0;clear:both; text-align:center; margin-top:-20px;}
+.wp-pagenavi a {padding:3px 8px;color:#009193; border-bottom:2px solid #009193; margin:0 5px;}
+.wp-pagenavi a:hover {padding:3px 8px;color:#E95D0F; border-bottom:2px solid #E95D0F}
+.wp-pagenavi span.pages {padding:3px 5px;margin:0 5px 0 10px;color:#5b7301;}
+.wp-pagenavi span.current {padding:3px 5px;background:#000;color:#fff;margin-right:5px;color:#fffff6;}
+.wp-pagenavi span.extend {padding:3px 5px;}
+
+.entry img {
+ width: expression( this.scrollwidth > 620 ? "620px" : "auto" ); /* sets max-height for IE */
+}
+.comment_ul li span { float:right; padding-right:10px; color:#87AC19;}
+

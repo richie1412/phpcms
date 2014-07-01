@@ -1,0 +1,16 @@
+<!-- footer ................................. -->
+<div id="footer">
+  <div class="alignleft"><strong>&copy; Copyright 2011 {$SE0['site_title']} . All rights reserved.</strong><br>
+    . Powered by <a href="http://www.bbscms.net/">技术支持</a> . <a href="{APP_PATH}index.php?m=admin">登录</a></div>
+  <div class="alignright">
+  {pc:get sql="SELECT * from v9_category where parentid=1 order by catid DESC"}
+  {loop $data $r}
+   {if $n>1}/{/if} 	<a href="{$r[url]}">{$r[catname]}</a>  
+   {/loop}
+   {/pc}
+   </div>
+</div>
+<!-- /footer -->
+<!-- /container -->
+</div>
+</body></html>
